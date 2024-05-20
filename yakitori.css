@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body {
+    color: orange;
+    /*ボディのカラーを指定*/
+}
+
+#blue {
+    color: rgb(0, 149, 255);
+    /*idの色とフォントサイズ指定*/
+    font-size: 40px;
+}
+
+body h1,
+body p {
+    text-align: center;
+    /*テキストを中央*/
+}
+
+.main {
+    width: 600px;
+    /*横幅を決定*/
+    background-color: bisque;
+    /*classの背景を変更*/
+}
+
+.html {
+    border-bottom: dotted 3px gray;
+}
