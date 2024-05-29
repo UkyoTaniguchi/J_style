@@ -26,7 +26,7 @@ body {
 }
 
 h1 {
-    background-image: url('yakitori.jpg'); /* 背景画像のパスを指定 */
+    background-image: url('image/yakitori.jpg'); /* 背景画像のパスを指定 */
     background-size: cover; /* 画像をコンテナのサイズに合わせてカバー */
     background-position: center; /* 画像を中央に配置 */
     background-repeat: no-repeat;
