@@ -1,36 +1,112 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Lato:900); /*タイトルアニメーションの為のインポート*/
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+} 
+
 
 body {
-    color: orange;
-    /*ボディのカラーを指定*/
-}
-
-#blue {
-    color: rgb(0, 149, 255);
-    /*idの色とフォントサイズ指定*/
-    font-size: 40px;
-}
-
-body h1,
-body p {
-    text-align: center;
-    /*テキストを中央*/
-}
-
-.main {
-    width: 600px;
-    /*横幅を決定*/
-    background-color: bisque;
-    /*classの背景を変更*/
-}
-
-.html {
-    border-bottom: dotted 3px gray;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(21, 21, 21);
+    /* 画面全体の背景色を黒色に設定 */
+    color:whitesmoke ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic' /* フォント指定 */
 }
 
 .content {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h1 {
+    background-image: url('yakitori.jpg'); /* 背景画像のパスを指定 */
+    background-size: cover; /* 画像をコンテナのサイズに合わせてカバー */
+    background-position: center; /* 画像を中央に配置 */
+    background-repeat: no-repeat;
+    color: black; /* テキストの色を白に設定 */
+    padding: 20px; /* 内側に余白を追加 */
+    text-align: center; /* テキストを中央揃え */
+    margin: 0; /* デフォルトの余白をなくす */
+    height: 800px; /* 高さの設定 */
+    display: flex; /* フレックボックスを使用 */
+    align-items: center; /* 縦方向に中央揃え */
+    justify-content: center; /*横方向に中央揃え*/
+    font-family: 'IM Fell DW Pica SC', serif;
+    width: 100%; /* 幅を100%に設定 */
+    font-size: 6em;
+    box-sizing: border-box; /* パディングを含めたサイズを計算 */
+}
+
+.big {
+    font-size: 110px;
+}
+
+.small-image {
+    width: 50%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 20px;
+}
+
+
+
+
+.letter { /*ここからタイトルアニメーションの為のクラス*/
+    display: inline-block;
+    font-weight: 900;
+    font-size: 1em;
+    /* h1のフォントサイズに依存するため1emに設定 */
+    margin: 0.2em;
+    position: relative;
+    color: #323d40;
+    transform-style: preserve-3d;
+    perspective: 400;
+    z-index: 1;
+}
+
+.letter:before,
+.letter:after {
+    position: absolute;
+    content: attr(data-letter);
+    transform-origin: top left;
+    top: 0;
+    left: 0;
+}
+
+.letter,
+.letter:before,
+.letter:after {
+    transition: all 0.3s ease-in-out;
+}
+
+.letter:before {
+    color: #fff;
+    text-shadow:
+        -1px 0px 1px rgba(255, 255, 255, .8),
+        1px 0px 1px rgba(0, 0, 0, .8);
+    z-index: 3;
+    transform: rotateX(0deg) rotateY(-15deg) rotateZ(0deg);
+}
+
+.letter:after {
+    color: rgba(0, 0, 0, .11);
+    z-index: 2;
+    transform: scale(1.08, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 1deg);
+}
+
+.letter:hover:before {
+    color: #fafafa;
+    transform: rotateX(0deg) rotateY(-40deg) rotateZ(0deg);
+}
+
+.letter:hover:after { /*ここまでタイトルアニメーションの為のクラス*/
+    transform: scale(1.08, 1) rotateX(0deg) rotateY(40deg) rotateZ(0deg) skew(0deg, 22deg);
 }
