@@ -81,6 +81,11 @@ h1 {
     /* フォントサイズを設定 */
 }
 
+.blank {
+    margin-top: 20px;
+    text-align: center;
+}
+
 
 
 
