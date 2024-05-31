@@ -45,7 +45,8 @@ h1 {
 }
 
 .big {
-    font-size: 110px;
+    font-size: 110px
+    ;
 }
 
 .small-image {
@@ -54,6 +55,30 @@ h1 {
     height: auto;
     display: block;
     margin: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2列を作成 */
+    grid-template-rows: repeat(2, 1fr);
+    /* 2行を作成 */
+    gap: 10px;
+    /* ブロック間のギャップを設定 */
+    padding: 20px;
+}
+
+.block {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 半透明の背景色 */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    /* 高さを統一 */
+    font-size: 1.2em;
+    /* フォントサイズを設定 */
 }
 
 
