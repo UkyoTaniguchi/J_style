@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         h1Element.style.opacity = 0; // フェードアウト
 
         setTimeout(() => {
-            h1Element.style.backgroundImage = `url(${images[currentIndex]})`; //
+            h1Element.style.backgroundImage = `url(${images[currentIndex]})`; //cssの背景画像にアクセス
             h1Element.style.opacity = 1; // フェードイン
             currentIndex = (currentIndex + 1) % images.length; //画像を更新、最後まで言ったら最初に
         }, 1200); // フェードアウトの時間と合わせる
