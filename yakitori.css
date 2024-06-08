@@ -6,23 +6,30 @@
     box-sizing: border-box;
 } 
 
+html, boky{
+    height: 100%;
+}
 
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(46, 45, 45);
     /* 画面全体の背景色を黒色に設定 */
     color:whitesmoke ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    display: flex; /*boxを横並びに配置*/
+    justify-content: center; /*boxの横配置を中央に寄せる*/
+    align-items: center; /*boxの高さをそのままで真ん中に合わせる*/
     font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic' /* フォント指定 */
 }
+
+/* ↓主にyakitori.htmlのページ↓ */
 
 .content {
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100%;
 }
 
 h1 {
@@ -117,6 +124,34 @@ a:hover {
     margin-top: 20px;
     text-align: center;
 }
+
+/* ↑主にyakitori.htmlのページ↑ */
+
+/* ↓主にReservation.htmlのページ↓ */
+
+.content_reservation {
+    display: flex;
+    height: 100%;
+}
+
+.side {
+    background: rgba(255, 255, 255, 0.1);
+    width: 200px;
+    height: 100%;
+}
+
+.center{
+    width: 1100px;
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+/* ↑主にReservation.htmlのページ↑ */
+
+
 
 
 
