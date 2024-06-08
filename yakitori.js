@@ -20,4 +20,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setInterval(changeBackgroundImage, 7000); // 6秒ごとに背景画像を変更
     changeBackgroundImage(); // 最初の画像を設定
+
+    const reservationForm = document.getElementById('reservationForm');
+
+    reservationForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(reservationForm);
+
+        fetch('reserve.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert('予約が完了しました!');
+            reservationForm.reset();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('予約に失敗しました。もう一度お試しください。');
+        });
+    });
 });
