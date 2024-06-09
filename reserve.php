@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $guests = $_POST['guests'];
 
     // SQLiteデータベースファイルのパス
-    $dbpath = '../database/reservation.db';
+    $dbpath = 'database/reservation.db';
 
     try {
         // SQLiteデータベースに接続
@@ -37,5 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 接続を閉じる
     $conn = null;
+}
+else{
+    echo "無効なリクエスト";
 }
 ?>

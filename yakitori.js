@@ -8,38 +8,49 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentIndex = 0;
     const h1Element = document.querySelector('#slideshow');
 
-    function changeBackgroundImage() {
-        h1Element.style.opacity = 0; // フェードアウト
+    if (h1Element) {
+        function changeBackgroundImage() {
+            h1Element.style.opacity = 0; // フェードアウト
 
-        setTimeout(() => {
-            h1Element.style.backgroundImage = `url(${images[currentIndex]})`; //cssの背景画像にアクセス
-            h1Element.style.opacity = 1; // フェードイン
-            currentIndex = (currentIndex + 1) % images.length; //画像を更新、最後まで言ったら最初に
-        }, 1300); // フェードアウトの時間と合わせる
+            setTimeout(() => {
+                h1Element.style.backgroundImage = `url(${images[currentIndex]})`; // cssの背景画像にアクセス
+                h1Element.style.opacity = 1; // フェードイン
+                currentIndex = (currentIndex + 1) % images.length; // 画像を更新、最後まで言ったら最初に
+            }, 1300); // フェードアウトの時間と合わせる
+        }
+
+        setInterval(changeBackgroundImage, 7000); // 7秒ごとに背景画像を変更
+        changeBackgroundImage(); // 最初の画像を設定
     }
 
-    setInterval(changeBackgroundImage, 7000); // 6秒ごとに背景画像を変更
-    changeBackgroundImage(); // 最初の画像を設定
-
     const reservationForm = document.getElementById('reservationForm');
+    const messageDiv = document.getElementById('message');
 
-    reservationForm.addEventListener('submit', function (e) {
-        e.preventDefault();
+    if (reservationForm) {
+        reservationForm.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-        const formData = new FormData(reservationForm);
+            const formData = new FormData(reservationForm);
 
-        fetch('reserve.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert('予約が完了しました!');
-            reservationForm.reset();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('予約に失敗しました。もう一度お試しください。');
+            fetch('reserve.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // サーバーからのレスポンスをアラートボックスに表示
+                if (messageDiv) {
+                    messageDiv.textContent = data;
+                }
+                reservationForm.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('予約に失敗しました。もう一度お試しください。');
+                if (messageDiv) {
+                    messageDiv.textContent = '予約に失敗しました。もう一度お試しください。';
+                }
+            });
         });
-    });
+    }
 });
