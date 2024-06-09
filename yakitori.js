@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const formData = new FormData(reservationForm);
 
-            fetch('reserve.php', {
+            fetch('../reserve.php', {
                 method: 'POST',
                 body: formData
             })
