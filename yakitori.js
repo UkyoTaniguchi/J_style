@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             fetch('http://localhost/J_style/reserve.php', {
                 method: 'POST',
-                body: formData
+                body: formData,
+                mode: 'cors'
             })
             .then(response => response.text())
             .then(data => {
